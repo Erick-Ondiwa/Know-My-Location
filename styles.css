@@ -1,0 +1,42 @@
+body{
+  font-family: Roboto;
+  display: flex;
+  margin: 0;
+  background-color:hsl(0, 0%, 96%);
+  justify-content: center;
+  align-items: center;
+}
+h1{
+  font-family: Roboto;
+  font-weight: bolder;
+  font-size: 4em;
+}
+.clockContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: grey;
+  width: 450px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px hsl(0, 0%, 10%);
+}
+.timeDispalay{
+  font-family: monospace;
+  margin-top: 0;
+  color: white;
+  font-size: 5em;
+  text-shadow: 2px 2px 5px hsl(0, 0%, 98%);
+
+}
+.dateDisplay{
+  font-family: Roboto;
+  margin-top: 0;
+  color: white;
+  font-size: 3em;
+  text-shadow: 2px 2px 5px hsl(0, 0%, 98%);
+}

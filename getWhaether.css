@@ -1,0 +1,81 @@
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: hsla(0, 0%, 95%, 0.801);
+  font-family: Roboto;
+}
+.place_name{
+  margin-top: 20px;
+  display: flex;
+}
+.place_name input::placeholder{
+  font-size: 1.2em;
+}
+.place_name input{
+  padding: 8px 20px;
+  margin-right: 30px;
+}
+.place_name button{
+  padding: 12px 20px;
+  font-size: 1.2em;
+  border: none;
+  background-color: hsl(120, 100%, 48%);
+  border-radius: 10px;
+  cursor: pointer;
+}
+.place_name button:hover{
+  box-shadow: 3px 3px 6px hsl(0, 0%, 10%);
+  background-color: hsla(120, 100%, 48%, 0.499);
+
+}
+.wather_details{
+  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, hsl(210, 100%, 75%), hsl(40, 100%, 75%));
+  box-shadow: 3px 3px 6px hsl(0, 0%, 10%);
+  width: 250px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+.wather_details p{
+  
+}
+.place{
+  margin-top: 30px;
+  margin-bottom:10px ;
+  font-size: 2.5em;
+  font-family: Roboto;
+}
+.temp{
+  margin-top: 0;
+  margin-bottom:10px ;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: Roboto;
+}
+.humidity{
+  margin-top: 10px;
+  margin-bottom:10px ;
+  font-size: 1.5em;
+  font-family: sans-serif;
+}
+.weather_des{
+  margin-top: 10px;
+  margin-bottom:10px ;
+  font-size: 1.1em;
+  font-style: italic;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+.emoji{
+  margin-top: 10px;
+  margin-bottom:10px;
+  font-size: 4em;
+  color: yellow;
+}
