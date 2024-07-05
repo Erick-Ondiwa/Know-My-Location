@@ -1,22 +1,46 @@
 import { apiKey } from "./exportApi.js";
+// require('.env').config();
+// const apiKey = process.env.API_KEY;
 
 const input_field = document.getElementById('input_field');
+const weather_details = document.getElementById('weather_display');
 const getWeatherButton = document.getElementById('get_weather_btn');
 getWeatherButton.addEventListener("click", async () =>{
-  const weatherData = await getWather();
+  weather_details.textContent = "";
+  try{
+    const weatherData = await getWather();
+    const {name:city,
+           main:{temp, humidity},
+           weather:[{description, id}]} = weatherData;
 
-  const cityName = weatherData.main.name;
-  const cityTemp = weatherData.main.temp;
-  const weather = weatherData.weather.main;
-  const weatherDesc = weatherData.weather.description;
-  const weatherIcon = weatherData.weather.icon;
+           const placeName = document.createElement('p');
+           placeName.textContent = city;
+           placeName.classList.add("place");
 
-  console.log(cityName);
-  console.log(cityTemp);
-  console.log(weather);
-  console.log(weatherDesc);
-  console.log(weatherIcon);
-  console.log(weatherData);
+           const placeTemp = document.createElement('p');
+           placeTemp.textContent = (temp - 273).toFixed(1);
+           placeTemp.classList.add("temp");
+
+           const placeHumidity = document.createElement('p');
+           placeHumidity.textContent = `${humidity}%`;
+           placeHumidity.classList.add("humidity");
+
+           const weatherDesc = document.createElement('p');
+           weatherDesc.textContent = description;
+           weatherDesc.classList.add("weather_desc");
+
+           const weatherId = document.createElement('p');
+           weatherId.textContent = id;
+           weatherId.classList.add("emoji");
+
+           weather_details.append(placeName, placeTemp, placeHumidity, weatherDesc, weatherId);
+
+           weather_details.style.display = 'flex';
+  }
+  catch(error){
+    console.error(error);
+    displayError("");
+  }
   
 });
 
@@ -28,14 +52,29 @@ async function getWather(){
     try{
       const response = await fetch (apiUrl);
       if(!response.ok){
-        console.error("Could not fetch data");
+        throw new error("Could not fetch data");
       }
       return response.json();
     }
     catch(error){
       console.error(error);
+      displayError("Could not fetch data")
     }
 
     console.log(response);
   }
+  else{
+    displayError("Please enter a city");
+
+  }
+}
+function displayError(message){
+  const errorDisplay = document.createElement('p');
+  errorDisplay.classList.add("errorDisplay");
+  errorDisplay.textContent = message;
+
+  weather_details.appendChild(errorDisplay);
+
+  weather_details.style.display = 'flex';
+
 }
