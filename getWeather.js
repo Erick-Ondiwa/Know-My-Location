@@ -1,5 +1,5 @@
 const input_field = document.getElementById('input_field');
-const ipiKey = "649597c47fd13799b12cd57e0046f0d8";
+const apiKey = process.env.apiKey;
 const getWeatherButton = document.getElementById('get_weather_btn');
 getWeatherButton.addEventListener("click", async () =>{
   const weatherData = await getWather();
@@ -22,7 +22,7 @@ getWeatherButton.addEventListener("click", async () =>{
 async function getWather(){
   const city = input_field.value;
   if(city){
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ipiKey}`;
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     try{
       const response = await fetch (apiUrl);
