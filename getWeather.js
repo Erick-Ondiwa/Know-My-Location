@@ -1,5 +1,6 @@
+import { apiKey } from "./exportApi.js";
+
 const input_field = document.getElementById('input_field');
-const apiKey = process.env.apiKey;
 const getWeatherButton = document.getElementById('get_weather_btn');
 getWeatherButton.addEventListener("click", async () =>{
   const weatherData = await getWather();
