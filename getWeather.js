@@ -30,7 +30,32 @@ getWeatherButton.addEventListener("click", async () =>{
            weatherDesc.classList.add("weather_desc");
 
            const weatherId = document.createElement('p');
-           weatherId.textContent = id;
+           let weatherEmoji;
+           switch(true){
+            case id >= 200 && id < 300:
+              weatherEmoji = "⛈"; 
+            break;
+            case id >= 300 && id < 400:
+               weatherEmoji = "🌧";
+            break;
+            case id >= 500 && id < 600:
+               weatherEmoji = "🌧"; 
+            break;
+            case id >= 600 && id < 700:
+              weatherEmoji = "🌨"; 
+            break;
+            case id >= 700 && id < 800:
+               weatherEmoji = "";
+            break;
+            case id === 800:
+             weatherEmoji = "";
+            break;
+            case id >= 800 && id < 900:
+               weatherEmoji = "☁";
+            break;
+            default: weatherEmoji ="❓";
+           }
+           weatherId.textContent = weatherEmoji;
            weatherId.classList.add("emoji");
 
            weather_details.append(placeName, placeTemp, placeHumidity, weatherDesc, weatherId);
