@@ -42,18 +42,19 @@ getWeatherButton.addEventListener("click", async () =>{
                weatherEmoji = "🌧"; 
             break;
             case id >= 600 && id < 700:
-              weatherEmoji = "🌨"; 
+              weatherEmoji = "❄"; 
             break;
             case id >= 700 && id < 800:
-               weatherEmoji = "";
+               weatherEmoji = "🌫";
             break;
             case id === 800:
-             weatherEmoji = "";
+             weatherEmoji = "☀";
             break;
             case id >= 800 && id < 900:
                weatherEmoji = "☁";
             break;
-            default: weatherEmoji ="❓";
+            default: 
+              weatherEmoji ="❓";
            }
            weatherId.textContent = weatherEmoji;
            weatherId.classList.add("emoji");
